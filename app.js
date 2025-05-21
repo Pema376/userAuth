@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'secretkey',
-  resave: false,
+resave: false,
   saveUninitialized: true,
 }));
 
@@ -28,16 +28,19 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // Routes
-// const adminRoutes = require('./routes/adminRoutes');
+const adminRoutes = require('./routes/adminroutes');
 const authRoutes = require('./routes/authRoutes');
-// const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/userroutes');
 app.use('/', authRoutes);
-// app.use('/', adminRoutes);
-// app.use('/', userRoutes);
+app.use('/admin', adminRoutes);
+app.use('/user', userRoutes);
+
 
 
 // Schema creation
-createUserTable(); // Call this after setting up middlewares
+const { createFoodTable } = require('./models/foodModel');
+createUserTable()
+createFoodTable();
 
 
 // Server
