@@ -26,9 +26,9 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // ✅ Only declared once
-const authRoutes = require("./routes/authRoutes");
-const adminRoutes = require("./routes/adminRoutes");
-const userRoutes = require("./routes/userRoutes");
+const authRoutes = require("./routes/authroutes");
+const adminRoutes = require("./routes/adminroutes");
+const userRoutes = require("./routes/userroutes");
 
 app.use("/", authRoutes);
 app.use("/admin", adminRoutes);
