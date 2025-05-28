@@ -28,7 +28,7 @@ app.set("views", path.join(__dirname, "views"));
 // Routes
 const authRoutes = require("./routes/authRoutes"); // ✅ Added this line
 const adminRoutes = require("./routes/adminRoutes"); // ✅ Fixed capitalization
-const userRoutes = require("./routes/userRoutes"); // ✅ Only once
+const authRoutes = require('./routes/authRoutes'); // ✅ Only once
 
 app.use("/", authRoutes);
 app.use("/admin", adminRoutes);
