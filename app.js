@@ -25,10 +25,10 @@ app.use(
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Routes
-const authRoutes = require("./routes/authRoutes"); // ✅ Added this line
-const adminRoutes = require("./routes/adminRoutes"); // ✅ Fixed capitalization
-const authRoutes = require('./routes/authRoutes'); // ✅ Only once
+// ✅ Only declared once
+const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 app.use("/", authRoutes);
 app.use("/admin", adminRoutes);
